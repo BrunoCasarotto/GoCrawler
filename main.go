@@ -98,14 +98,14 @@ func main() {
 	}
 
 	for _, title := range pages {
-		url := fmt.Sprintf("https://nikke-goddess-of-victory-international.fandom.com/wiki/%s", strings.ReplaceAll(title, " ", "_"))
+		url := fmt.Sprintf("https://nikke-goddess-of-victory-international.fandom.com/wiki/%s", strings.ReplaceAll(title, " ", "_")) // Wiki page
 		text, err := fetchWikiPage(url)
 		if err != nil {
 			fmt.Println("Error fetching wiki page:", err)
 			continue
 		}
 
-		filename := fmt.Sprintf("%s.txt", strings.ReplaceAll(title, "/", "_"))
+		filename := fmt.Sprintf("%s.txt", strings.ReplaceAll(title, "/", "_")) // File name for Windows, since / does not work, I replaced it with _
 		err = saveToFile(text, filename)
 		if err != nil {
 			fmt.Println("Error saving to file:", err)
